@@ -1,38 +1,78 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+*{
+  margin : 0;
+  padding : 0;
+  box-sizing: border-box;
+  font-family: 'Ubuntu', sans-serif;
+  color : white;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+html,body{
+  width : 100vw;
+  height : 100vh;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body{
+  position : relative;
+  background-color: black;
 }
+.container{
+  width : 90vw;
+  height : 100vh;
+  margin : 0 auto;
+  background-color: rgb(49, 48, 48);
+  display : grid;
+  grid-template-columns: 1fr 6fr;
+  grid-template-rows: 1.5fr 6fr 1fr;
+  grid-template-areas: 
+  "header header"
+  "nav main"
+  "nav footer";
+  grid-gap : 2vh;
+  padding : 2vh;
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+}
+.container > *{
+  border : 2px solid white;
+  display : flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  font-size : 1.3rem;
+  font-weight : 800;
+
+}
+.header{
+  grid-area : header;
 }
 
-.App-link {
-  color: #61dafb;
+.side__nav{
+  grid-area: nav;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+.main{
+  grid-area: main;
+  flex-direction: column;
+}
+.main > .list{
+  border : 1px solid white;
+  width : fit-content;
+  height : fit-content;
+  padding : 5px 5px;
+  margin : 2px 0;
+}
+.main .likebtn{
+  cursor: pointer;
+}
+.footer{
+  grid-area: footer;
+}
+
+
+@media screen and (max-width : 1200px) {
+  .container{
+    grid-template-rows: 1.5fr 1fr 6fr 1fr;
+    grid-template-areas: 
+    "header header"
+    "nav nav"
+    "main main"
+    "footer footer";
   }
 }
