@@ -11,6 +11,7 @@ let cpuName = ["cpu1","cpu2","cpu3"];
 let newCpuName = cpuName.map((value) => {
     return "cpu4"
     // return 값은 기존의 값을 모두 지우고 이걸 cpuName의 length만큼 넣어준다. 
+    
 })
 console.log(newCpuName);
 

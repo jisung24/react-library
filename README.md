@@ -12,3 +12,6 @@
     - arr.map(() => {})
         - arr의 개수만큼 callback함수 실행시켜줌! 
         - 각각 list의 좋아용 증가기능 구현 못 했음. 
+
+    - `component만드는 법`
+    - `component의 단점 => state와 연관! `
