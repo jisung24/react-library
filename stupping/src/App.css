@@ -99,7 +99,7 @@ html,body{
   position : relative;
 }
 /* 좋아요 버튼 */
-.blog__content > .like__button{
+.blog__content > .like__box{
   position : absolute;
   right : 0;
   bottom : 0;
