@@ -1,82 +1,146 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
 *{
   margin : 0;
   padding : 0;
   box-sizing: border-box;
-  font-family: 'Ubuntu', sans-serif;
-  color : white;
 }
 html,body{
   width : 100vw;
   height : 100vh;
 }
-body{
-  position : relative;
-  background-color: black;
-}
+
+
+/* web entire container */
 .container{
-  width : 90vw;
+  font-family: 'Ubuntu', sans-serif;
+  width : 100vw;
   height : 100vh;
-  margin : 0 auto;
-  background-color: rgb(49, 48, 48);
+  /* main에다가 scroll 넣어서 contents들이 더 올 수 있게! */
   display : grid;
   grid-template-columns: 1fr 6fr;
-  grid-template-rows: 1.5fr 6fr 1fr;
+  grid-template-rows: 1fr 6fr 1fr;
   grid-template-areas: 
   "header header"
   "nav main"
-  "nav footer";
-  grid-gap : 2vh;
-  padding : 2vh;
-
+  "footer footer";
+  grid-gap : 1vh;
+  padding : 10px;
+  background-color: gray;
 }
-.container > *{
-  border : 2px solid white;
-  display : flex;
-  justify-content: center;
-  align-items: center;
-  font-size : 1.3rem;
-  font-weight : 800;
-
-}
+/* header */
 .header{
-  grid-area : header;
+  grid-area: header;
 }
 
-.side__nav{
+/* navigation */
+.nav{
   grid-area: nav;
 }
 
+/* main content */
 .main{
   grid-area: main;
+
+  display : grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 50%;
+  grid-gap : 1vh;
+  padding : 2vh;
+  overflow-y: scroll;
+}
+.main > .item{
+  border : 1px solid black;
+  background-color: rgb(206, 236, 249);
+  color : black;
+  font-size : 1.3rem;
+  font-weight : 800;
+  position : relative;
+}
+
+/* item layout */
+.item > .item__container{
+  position : relative;
+  left : 50%;
+  top : 50%;
+  transform : translate(-50%, -50%);
+  border : 2px solid black;
+  width : 90%;
+  height : 95%;
+  display : flex;
   flex-direction: column;
 }
-.main > .list{
-  border : 1px solid white;
-  width : fit-content;
-  height : fit-content;
-  padding : 5px 5px;
-  margin : 2px 0;
+.item__container > *{
+  border : 1px solid black;
 }
-.main .likebtn{
-  cursor: pointer;
+.item__title__box{
+  flex-grow : 2;
+  display : flex;
+  justify-content: center;
+  align-items: center;
+  font-weight : 800;
 }
+.item__content__box{
+  flex-grow : 8;
+  display : flex;
+  flex-direction: column;
+}
+.item__content__box > *{
+  border : 1px solid black;
+}
+.item__content__box > .blog__user{
+  flex-grow : 1;
+}
+.item__content__box > .blog__date{
+  flex-grow : 1;
+}
+.item__content__box > .blog__content{
+  flex-grow: 8;
+  position : relative;
+}
+/* 좋아요 버튼 */
+.blog__content > .like__button{
+  position : absolute;
+  right : 0;
+  bottom : 0;
+  width : 50px;
+  height : 20px;
+  border : 1px solid black;
+}
+/* footer content */
 .footer{
   grid-area: footer;
 }
-
-/* component css */
-.posts{
-  border : 3px solid black;
-  padding : 10px 8px;
+.container > *{
+  border : 1px solid black;
+  color : white;
 }
-@media screen and (max-width : 1200px) {
-  .container{
-    grid-template-rows: 1.5fr 1fr 6fr 1fr;
-    grid-template-areas: 
-    "header header"
-    "nav nav"
-    "main main"
-    "footer footer";
+
+/* 반응형 3개 분기점 */
+
+/* pc(desktop) 1024px이상~ */
+@media screen and (min-width : 1024px) {
+  .header{
+    background-color: deepskyblue;
   }
+}
+
+
+/* tablet 세로 ~ tablet가로 (768px - 1024px) */
+@media screen and (min-width:768px) and (max-width:1023px){
+  /* main안의 item들 재배치! 3columns로 */
+ .main{
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 50%;
+  overflow-y: scroll;
+ }
+}
+
+/* mobile 가로 && 세로 (~ 767px) */
+@media screen and (max-width : 767px) {
+  .main{
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 50%;
+    overflow-y: scroll;
+   }
 }
