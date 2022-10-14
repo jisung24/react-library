@@ -5,7 +5,7 @@ import { useState } from 'react';
 function App(){
   let firstTitle = "hello";
   // blog database => 글 제목, 작성자, 발행일, content => 이렇게 4개! 
-  let [ title, titleChange ] = useState(["title1", "title2", "title3", "title4"]); // 단일 data state에 넣기!(거의 쓸 일 없겠지..)
+  let [ title, titleChange ] = useState(["title1", "title2", "title3", "title4", "title5","title6","title7","title8", "title9", "title10"]); // 단일 data state에 넣기!(거의 쓸 일 없겠지..)
   // 2번째 변수는 state변경을 도와주는 함수!! => 왜냐면 값이 계속 변하니까!! 서버 data에 따라서...
   // useState("title1"); => ["title1", 함수]; ==> 이렇게 사실상 배열이다. 
   // 저 length가 2인 배열을 각 title, titleChange 라는 2개의 변수에다가 각각 담아줌. 
@@ -25,12 +25,15 @@ function App(){
   // 자! 만약에 [] => titleChange("title2") => 배열 전체가 title2로 바뀌게 됨. 
   // ==> 배열 전체를 다 가져와서.. => 변경을 해주고싶은 idx값만 변경을 해줘야한다. 
   // ====> 배열함수 장난아니게 많이 쓰이겠지...?? ok 
+
+  // Ui의 상태도 계속 변하니까 state로 저장! 
+  let [ui, setUi] = useState(false); // 일단 안 보이게 함.  
   return(
     <div className="container">
       <header className="header">header</header>
       <nav className="nav">nav</nav>
       <main className="main">
-        <div className="item item1">
+        {/* <div className="item item1">
           <div className="item__container">
             <div className="item__title__box">
               <h4 className="title" onClick = {
@@ -77,17 +80,28 @@ function App(){
 
             </div>
           </div>
-        </div>
-        <Modal></Modal>
-        <div className="item item3">item3</div>
-        <div className="item item4">item4</div>
-        <div className="item item5">item5</div>
-        <div className="item item6">item6</div>
-        <div className="item item7">item7</div>
-        <div className="item item8">item8</div>
-        <div className="item item9">item9</div>
+        </div> */}
+        {/* 8개의 반복문으로 한 번 해보자!!(for문을 사용할 수 없음!) */}
+        {/* 실제 글 data개수대로...!! */}
+        {
+          title.map((value , idx)=> {
+            return <div className = "item" key={ idx }>{ idx + 1 }</div>
+            // <Modal></Modal>
+            // 원리.. 서버 data를 state변수 안에다가 넣고,
+            // 그걸 마치 ejs 빵꾸 뚫듯이 data binding해주면 돼! 
+          })
+        }
+        {
+          ui === false ? null : <Ui ittle = { title } setTitle = { titleChange }/>
+        }
+
+        
+
       </main>
-      <footer className="footer">footer</footer>
+      <footer className="footer" onClick = {
+        () => setUi(!ui)
+        // ui state값을 반대로 바꿔주자!! 
+      }>footer</footer>
     </div>
   )
 }
@@ -109,10 +123,39 @@ function App(){
 // Modal함수 안에서 다른 함수에 선언돼있는 state변수 사용 못 해!! 
 // ===> 해결할 수 있어!!! 
 // ===> state를 가져다가 쓸 때 살짝 불편함이 생긴다...!! 
+
+
 function Modal(){
   // let numArr = ["item1","item1","item1","item1","item1","item1","item1","item1",] 
+
   return (
-    <div className="item item3">item3</div>
+    <div className="item">item</div>
+  )
+  // 이런 html코드들을 만들어서 return시켜주는 함수 => component라고 해! 
+  // 그럼 반복되는 html코드들은 함수이름으로 짧게 축약이가능함.ㅡ
+}
+
+// 여기다가 component를 만들어놓는다! 
+function Ui(props){
+  // 다른 함수안에있는 state가져오기!! 
+  // App컴포넌트 안에 Ui컴포넌트 있어 (부모 자식)
+  // 부모가 갖고있는 state를 자식도 사용할 수 있어 => props사용!!! 
+  // 사용법 
+  // 1. 자식스테이트 사용하는 곳에 가서 작명 = {state이름}
+
+  // props전송은 부모 => 자식만 가능 
+  // 형제 간 전달 x 
+  // 자식에서 부모 전달 x
+
+  // component가 많아지면 props쓰기도 귀찮아짐
+  // props로 함수, state변수, 다른 숫자, 문자 등등 다 전송할 수 있어
+  return (
+    <div className="ui__container">
+      <p className="ui__title">{props.title[2]}</p>
+      <p className="ui__date">날짜</p>
+      <p className="ui__detail">상세내용</p>
+      <button onClick={ () => { props.setTitle(["title100", "title2", "title3", "title4", "title5","title6","title7","title8", "title9", "title10"])}}></button>
+    </div>
   )
 }
 export default App;
