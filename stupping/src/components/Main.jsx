@@ -8,11 +8,31 @@ function Main(){
 
     return (
         <main className="main">
-            <UserCard name="김지성" age="20"/>
-            <UserCard name="장종운" age="21" />
-            <UserCard name="이재혁" age="22" />
-            <UserCard name="조홍래" age="23" />
-            <UserCard name="박현태" age="24" />
+            <UserCard 
+                name="김지성" 
+                age="20" 
+                news={ true }
+            />
+            <UserCard 
+                name="장종운" 
+                age="21" 
+                news={ false }
+            />
+            <UserCard 
+                name="김지성" 
+                age="20" 
+                news={ true }
+            />
+            <UserCard 
+                name="김지성" 
+                age="20" 
+                news={ true }
+            />
+            <UserCard 
+                name="김지성" 
+                age="20" 
+                news={ true }
+            />
         </main>
     )
 }

@@ -65,6 +65,12 @@ html,body{
   flex-grow : 1;
   border : 1px solid black;
 }
+.user__image > .user__new{
+  padding : 1px 1px;
+  background-color: black;
+  color : white;
+  border-radius : 5px;
+}
 .user__card > .user__profile{
   flex-grow : 1.5;
   border : 1px solid black;
