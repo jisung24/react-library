@@ -1,6 +1,8 @@
 // 카드주인의 이름, 직업을 state로 변하게 만들어놓고 사용하면
 // 컴포넌트의 재사용성이 훨씬 더 높아지겠지????  
 
+import Name from './Name';
+
 function UserCard({ news, name, age }){
     // let { name , age } = props객체...!! 
     // props는 객체 형태로 전달이 되며, 그 속성에 접근하고 싶으면
@@ -16,12 +18,14 @@ function UserCard({ news, name, age }){
     return (
         <div className="user__card">
             <div className="user__image">
-                { news && <span className="user__new">sdsds</span> }
+                { news === true ? <span>news</span> : null }
+                {/* 그 이 컴포넌트의 값은 사용하는 곳에서 넣으니까
+                조건은 여기서 달아줘야돼! 그래야 값을 사용하는 곳에서
+                조건에 맞는 값이면 나타남. 
+                */}
             </div>
             <div className="user__profile">
-                <h1 className="user__name">
-                    { name }
-                </h1>
+               <Name name="지성"/>
                 <p className="user__age">
                     { age }
                 </p>
