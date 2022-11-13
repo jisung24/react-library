@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import { useState } from 'react';
 import Header from './components/Header';
-import Main from './components/Main';
+import Main from './components/Main/Main';
 import Navigation from './components/Nav';
 import Footer from './components/Footer';
 

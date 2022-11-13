@@ -43,37 +43,20 @@ html,body{
 }
 
 /* main */
-.main{
+main{
   grid-area: main;
 
   display : grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   grid-auto-rows: minmax(200px, 1fr);
   grid-gap : 1vh;
   padding : 1vh;
 }
 
-/* main 사용자 카드 */
-.main > .user__card{
-  border : 1px solid black;
-  display : flex;
-  flex-direction: column;
-  box-shadow: -1px 5px 16px -1px rgba(0,156,255,0.84);
-  background-color: rgb(185, 237, 254);
-}
-.user__card > .user__image{
-  flex-grow : 1;
-  border : 1px solid black;
-}
-.user__image > .user__new{
-  padding : 1px 1px;
-  background-color: black;
-  color : white;
-  border-radius : 5px;
-}
-.user__card > .user__profile{
-  flex-grow : 1.5;
-  border : 1px solid black;
+main > .card__wrapper{
+  box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
+  border-radius : 10px;
+  text-align: center;
 }
 
 /* footer */
