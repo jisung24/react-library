@@ -3,23 +3,21 @@ import logo from './logo.svg';
 import './App.css';
 import { useState } from 'react';
 import Header from './components/Header';
-import Main from './components/Main/Main';
-import Navigation from './components/Nav';
-import Footer from './components/Footer';
+import Main from './components/Main';
+
 
 /* import 컴포넌트이름 from '파일경로' */
 
 function App(){
-    // 봐봐 그냥 함수야.. js함수 안에 return ()에다가 html코드 적는거야! 
-    // JSX : 이 처럼, javascript안에 html을 적는 문법을 jsx라고 해! 
-    // 순수 자바스크립트 파일이 아니라 , react component file이라면 
-    // 확장자를 jsx라고 적어준다! 
+    // App component인데 결국 여기다가 내가 만든 웹 사이트 전체가 다 들어간다.
+    // 여기에다가 이제 Component들을 전부 import해와야해!! 
     return (
         <div className="container">
-            <Header />
-            <Navigation />
-            <Main />
-            <Footer />
+            <Header/>
+            <nav>Nav</nav>
+            <Main/>
+            {/* Main안에 Item Component는 이미 정의 돼서 안 해줘도 돼!  */}
+            <footer>Footer</footer>
         </div>
     )
 }

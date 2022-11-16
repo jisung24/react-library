@@ -32,13 +32,17 @@ html,body{
   font-weight : 800;
   font-style : italic;
 }
-/* header */
-.header{
+/* Header Component*/
+header{
   grid-area: header;
+  display : flex;
+  justify-content: center;
+  align-items: center;
+  color : white;
 }
 
 /* navigtion */
-.nav{
+nav{
   grid-area: nav;
 }
 
@@ -52,14 +56,15 @@ main{
   grid-gap : 1vh;
   padding : 1vh;
 }
-
-main > .card__wrapper{
-  box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
+main > .item{
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
   border-radius : 10px;
-  text-align: center;
 }
-
+main > .item:hover{
+  transition : all 0.5s;
+  transform : scale(1.1);
+}
 /* footer */
-.footer{
+footer{
   grid-area: footer;
 }
