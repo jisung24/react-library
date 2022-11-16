@@ -12,6 +12,7 @@ export default function Main(){
         <main className="main">
             {/* 즉 반복되는 카드에 props라는 구멍을 뚫어서 원하는 값을 우리가 여기서 넣어주면 돼! */}
             {/* 또한 값에 조건을 설정할 수 있다 => 여기까지!! 주말까지 배운거 복습해서 올립자 */}
+            {/* 리엑트 시작! */}
            <Card
             img = "img1"
             name = "안녕"
